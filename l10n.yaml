@@ -1,0 +1,6 @@
+arb-dir: lib/core/translations
+output-localization-file: app_localizations.dart
+output-class: S
+output-dir: lib/core/translations/intl
+synthetic-package: false
+template-arb-file: intl_en.arb

@@ -1,0 +1,15 @@
+flavors:
+  dev:
+    app:
+      name: "James Shop Dev"
+    android:
+      applicationId: "com.james.dev"
+    ios:
+      bundleId: "com.james.dev"
+  prod:
+    app:
+      name: "James Shop"
+    android:
+      applicationId: "com.james.prod"
+    ios:
+      bundleId: "com.james.prod"
