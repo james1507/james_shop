@@ -16,6 +16,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     on<WelcomeLoadAndNavigatedEvent>(_onWelcomeLoadAndNavigate);
     on<ChangeCurrentPageEvent>(_onChangeCurrentPage);
     on<NavigateToHomeEvent>(_onNavigateToHome);
+    on<ChangeCurrentIndexEvent>(_onChangeCurrentIndex);
   }
 
   _onWelcomeLoadAndNavigate(
@@ -27,6 +28,11 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
         ),
       );
     });
+  }
+
+  _onChangeCurrentIndex(
+      ChangeCurrentIndexEvent event, Emitter<OnboardingState> emitter) {
+    emitter(CurrentPageIndexState(currentPageIndex: event.currentPageIndex));
   }
 
   _onChangeCurrentPage(

@@ -26,11 +26,22 @@ class _WalkthroughPageState extends State<WalkthroughPage>
   }
 
   @override
+  void dispose() {
+    super.dispose();
+
+    _bloc.close();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder(
+      body: BlocBuilder<OnboardingBloc, OnboardingState>(
         bloc: _bloc,
         builder: (context, state) {
+          if (state is CurrentPageIndexState) {
+            _bloc.currentPageIndex = state.currentPageIndex;
+          }
+
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -55,9 +66,7 @@ class _WalkthroughPageState extends State<WalkthroughPage>
         scrollDirection: Axis.horizontal,
         children: TabWalkthroughEnumExtension.pages,
         onPageChanged: (value) {
-          setState(() {
-            _bloc.currentPageIndex = value;
-          });
+          _bloc.add(ChangeCurrentIndexEvent(currentPageIndex: value));
         },
       ),
     );
