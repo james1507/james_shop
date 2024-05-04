@@ -111,11 +111,47 @@ abstract class S {
   /// **'James'**
   String get james;
 
-  /// No description provided for @welcome_to.
+  /// No description provided for @welcomeTo.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to'**
-  String get welcome_to;
+  /// **'Welcome to 👋'**
+  String get welcomeTo;
+
+  /// No description provided for @descriptionWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'The best e-commerce app of the century for your daily needs!'**
+  String get descriptionWelcome;
+
+  /// No description provided for @descriptionWalkthrough1.
+  ///
+  /// In en, this message translates to:
+  /// **'We provide high quality products just for you'**
+  String get descriptionWalkthrough1;
+
+  /// No description provided for @descriptionWalkthrough2.
+  ///
+  /// In en, this message translates to:
+  /// **'Your satisfaction is our number one priority'**
+  String get descriptionWalkthrough2;
+
+  /// No description provided for @descriptionWalkthrough3.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s fulfill your daily needs with Evira right now!'**
+  String get descriptionWalkthrough3;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get getStarted;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

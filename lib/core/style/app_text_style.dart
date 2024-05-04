@@ -51,6 +51,18 @@ class AppTextStyle {
     fontWeight: FontWeight.normal,
   );
 
+  static const displayLargeBlack = TextStyle(
+    fontSize: AppFontSize.displayLarge,
+    color: AppColors.black,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const displaySmallBlack = TextStyle(
+    fontSize: AppFontSize.smallLarge,
+    color: AppColors.black,
+    fontWeight: FontWeight.normal,
+  );
+
   static const xxxLargeBlackBold = TextStyle(
     fontSize: AppFontSize.xxxLarge,
     color: AppColors.black,
@@ -100,6 +112,18 @@ class AppTextStyle {
 
   static const xxxLargeWhite = TextStyle(
     fontSize: AppFontSize.xxxLarge,
+    color: AppColors.white,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const displayLargeWhite = TextStyle(
+    fontSize: AppFontSize.displayLarge,
+    color: AppColors.white,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const displaySmallWhite = TextStyle(
+    fontSize: AppFontSize.smallLarge,
     color: AppColors.white,
     fontWeight: FontWeight.normal,
   );

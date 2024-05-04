@@ -14,5 +14,23 @@ class SVi extends S {
   String get james => 'James';
 
   @override
-  String get welcome_to => 'Chào mừng đến với';
+  String get welcomeTo => 'Chào mừng đến với 👋';
+
+  @override
+  String get descriptionWelcome => 'Ứng dụng thương mại điện tử tốt nhất thế kỷ cho nhu cầu hàng ngày của bạn!';
+
+  @override
+  String get descriptionWalkthrough1 => 'Chúng tôi cung cấp sản phẩm chất lượng cao dành riêng cho bạn';
+
+  @override
+  String get descriptionWalkthrough2 => 'Sự hài lòng của bạn là ưu tiên số một của chúng tôi';
+
+  @override
+  String get descriptionWalkthrough3 => 'Hãy cùng Evira đáp ứng nhu cầu hàng ngày của bạn ngay bây giờ!';
+
+  @override
+  String get next => 'Tiếp tục';
+
+  @override
+  String get getStarted => 'Bắt đầu';
 }

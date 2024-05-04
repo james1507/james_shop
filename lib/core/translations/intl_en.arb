@@ -2,5 +2,11 @@
     "vietnamese": "Tiếng Việt",
     "english": "English",
     "james": "James",
-    "welcome_to": "Welcome to"
+    "welcomeTo": "Welcome to 👋",
+    "descriptionWelcome": "The best e-commerce app of the century for your daily needs!",
+    "descriptionWalkthrough1": "We provide high quality products just for you",
+    "descriptionWalkthrough2": "Your satisfaction is our number one priority",
+    "descriptionWalkthrough3": "Let's fulfill your daily needs with Evira right now!",
+    "next": "Next",
+    "getStarted": "Get Started"
 }

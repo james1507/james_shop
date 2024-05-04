@@ -4,4 +4,4 @@ abstract class SplashEvent {
   const SplashEvent();
 }
 
-class SplashInitialEvent extends SplashEvent {}
+class SplashLoadAndNavigatedEvent extends SplashEvent {}

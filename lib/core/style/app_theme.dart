@@ -7,6 +7,7 @@ import 'app_colors.dart';
 
 /// Light theme
 final ThemeData appTheme = ThemeData(
+  primaryColor: AppColors.primaryColor,
   dialogBackgroundColor: AppColors.lightGray,
   cardColor: AppColors.primaryColor,
   appBarTheme: AppBarTheme(
@@ -31,6 +32,8 @@ final ThemeData appTheme = ThemeData(
     titleSmall: AppTextStyle.smallBlack,
     bodyLarge: AppTextStyle.largeBlack,
     bodyMedium: AppTextStyle.mediumBlack,
+    displayLarge: AppTextStyle.displayLargeBlack,
+    displaySmall: AppTextStyle.displaySmallBlack,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
@@ -63,6 +66,7 @@ final ThemeData appTheme = ThemeData(
 
 /// Dark theme
 final ThemeData darkAppTheme = ThemeData(
+  primaryColor: AppColors.primary100,
   dialogBackgroundColor: AppColors.primaryColor,
   cardColor: AppColors.orange.withOpacity(0.5),
   appBarTheme: AppBarTheme(
@@ -87,6 +91,8 @@ final ThemeData darkAppTheme = ThemeData(
     titleSmall: AppTextStyle.smallWhite,
     bodyLarge: AppTextStyle.largeWhite,
     bodyMedium: AppTextStyle.mediumWhite,
+    displayLarge: AppTextStyle.displayLargeWhite,
+    displaySmall: AppTextStyle.displaySmallWhite,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(

@@ -7,4 +7,6 @@ abstract class AppFontSize {
   static const double xLarge = 18.0;
   static const double xxLarge = 20.0;
   static const double xxxLarge = 24.0;
+  static const double displayLarge = 57.0;
+  static const double smallLarge = 57.0;
 }
