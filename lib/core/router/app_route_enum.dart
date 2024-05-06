@@ -4,6 +4,7 @@ enum AppRouteEnum {
   walkthroughPage,
   homePage,
   accountAuthPage,
+  loginPage,
 }
 
 extension AppRouteExtension on AppRouteEnum {
@@ -23,6 +24,9 @@ extension AppRouteExtension on AppRouteEnum {
 
       case AppRouteEnum.accountAuthPage:
         return "/account_auth_page";
+
+      case AppRouteEnum.loginPage:
+        return "/login_page";
 
       default:
         return "/splash_page";

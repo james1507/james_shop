@@ -4,3 +4,4 @@ abstract class AccountAuthEvent {
   const AccountAuthEvent();
 }
 
+class NavigateToLoginEvent extends AccountAuthEvent {}

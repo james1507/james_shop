@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:james_shop/core/translations/l10n.dart';
 import 'package:james_shop/core/utils/constant/app_assets.dart';
+import 'package:james_shop/features/account_auth/presentation/bloc/account_auth_bloc.dart';
 import 'package:james_shop/shared/domain/enum/social_enum.dart';
 import 'package:james_shop/shared/presentation/widgets/app_button.dart';
 
@@ -13,6 +14,19 @@ class AccountAuthPage extends StatefulWidget {
 }
 
 class _AccountAuthPageState extends State<AccountAuthPage> {
+  final _bloc = AccountAuthBloc();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bloc.close();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +75,7 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
       itemBuilder: (context, index) {
         return AppButton(
           buttonColor: theme.colorScheme.onBackground,
-          overlayColor: theme.primaryColor.withOpacity(0.1),
+          overlayColor: theme.colorScheme.secondary.withOpacity(0.1),
           padding: const EdgeInsets.all(17),
           border: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -84,6 +98,7 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
                   style: theme.textTheme.titleMedium!.copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
+                    color: theme.colorScheme.secondary,
                   ),
                   overflow: TextOverflow.fade,
                 ),
@@ -140,14 +155,17 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
       width: size.width,
       margin: const EdgeInsets.symmetric(horizontal: 24),
       buttonColor: theme.primaryColor,
+      overlayColor: theme.colorScheme.onSurface.withOpacity(0.1),
       padding: const EdgeInsets.all(17),
-      onPressed: () {},
+      onPressed: () {
+        _bloc.add(NavigateToLoginEvent());
+      },
       child: Text(
         lang.signInWithPassword,
         style: theme.textTheme.titleMedium!.copyWith(
           fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: theme.colorScheme.onBackground,
+          color: theme.colorScheme.onSurface,
         ),
       ),
     );

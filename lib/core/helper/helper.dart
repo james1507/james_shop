@@ -42,4 +42,22 @@ class Helper {
   static bool isDarkTheme() {
     return sl<AppSharedPrefs>().getIsDarkTheme();
   }
+
+    static Map<String, dynamic> get headerAfterLogin {
+    final token = sl<AppSharedPrefs>().getUser()?.token ?? "";
+    Map<String, dynamic> headers = {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer $token",
+    };
+
+    return headers;
+  }
+
+  static Map<String, dynamic> get header {
+    Map<String, dynamic> headers = {
+      "Content-Type": "application/json",
+    };
+
+    return headers;
+  }
 }

@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:james_shop/core/utils/constant/local_storage_constants.dart';
+import 'package:james_shop/shared/domain/entities/user_entity.dart';
 import 'package:james_shop/shared/domain/enum/language_enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,7 +12,7 @@ class AppSharedPrefs {
 
   LanguageEnum? getLang() {
     String? data = _preferences.getString(LocalStorageConstants.lang);
-    if(data == null) {
+    if (data == null) {
       return LanguageEnum.en;
     }
 
@@ -26,5 +29,21 @@ class AppSharedPrefs {
 
   void setDarkTheme(bool isDark) {
     _preferences.setBool(LocalStorageConstants.theme, isDark);
+  }
+
+  UserEntity? getUser() {
+    final user = _preferences.getString(LocalStorageConstants.user);
+    if (user == null) return null;
+
+    return UserEntity.fromJson(json.decode(user));
+  }
+
+  void setUser(UserEntity? user) {
+    if (user == null) {
+      _preferences.remove(LocalStorageConstants.user);
+    } else {
+      _preferences.setString(
+          LocalStorageConstants.user, json.encode(user.toMap()));
+    }
   }
 }

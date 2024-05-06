@@ -54,4 +54,25 @@ class SVi extends S {
 
   @override
   String get signUp => 'Đăng ký';
+
+  @override
+  String get loginTitle => 'Đăng nhập vào tài khoản của bạn';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get rememberMe => 'Remember me';
+
+  @override
+  String get signIn => 'Đăng nhập';
+
+  @override
+  String get forgotPassword => 'Quên mật khẩu?';
+
+  @override
+  String get orContinueWith => 'hoặc tiếp tục với';
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005051054431",
+    "project_id": "james-shop-3a23f",
+    "storage_bucket": "james-shop-3a23f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005051054431:android:82b787c729bba8fd974eea",
+        "android_client_info": {
+          "package_name": "com.james.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbxigiXNcxKoie3dfgCLZ2fa9g3qkr1G4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

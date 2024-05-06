@@ -15,5 +15,12 @@
     "or": "hoặc",
     "signInWithPassword": "Đăng nhập với mật khẩu",
     "dontHaveAnAccount": "Bạn chưa có tài khoản?",
-    "signUp": "Đăng ký"
+    "signUp": "Đăng ký",
+    "loginTitle": "Đăng nhập vào tài khoản của bạn",
+    "email": "Email",
+    "password": "Password",
+    "rememberMe": "Remember me",
+    "signIn": "Đăng nhập",
+    "forgotPassword": "Quên mật khẩu?",
+    "orContinueWith": "hoặc tiếp tục với"
 }

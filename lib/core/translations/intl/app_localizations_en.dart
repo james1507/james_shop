@@ -54,4 +54,25 @@ class SEn extends S {
 
   @override
   String get signUp => 'Sign up';
+
+  @override
+  String get loginTitle => 'Login to your Account';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get rememberMe => 'Remember me';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
+  String get forgotPassword => 'Forgot the password?';
+
+  @override
+  String get orContinueWith => 'or continue with';
 }
