@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAd9kekO6ESGa0lkxHOVeeMo2vxXK_KEX0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1005051054431</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.james.dev</string>
+	<key>PROJECT_ID</key>
+	<string>james-shop-3a23f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>james-shop-3a23f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1005051054431:ios:2940310032fdb156974eea</string>
+    <key>CLIENT_ID</key>
+    <string>1005051054431-05ubfaf2c0bhl83h185k17klo1a3fb23.apps.googleusercontent.com</string>
+    <key>REVERSED_CLIENT_ID</key>
+    <string>com.googleusercontent.apps.1005051054431-05ubfaf2c0bhl83h185k17klo1a3fb23</string>
+    <key>ANDROID_CLIENT_ID</key>
+    <string>1005051054431-u5o1l5ohuaa6kds3uqq4bapjuvi4cdg7.apps.googleusercontent.com</string>
+</dict>
+</plist>
