@@ -8,6 +8,8 @@ class AppButton extends StatelessWidget {
   final EdgeInsets? padding;
   final EdgeInsets? margin;
   final Color? buttonColor;
+  final Color? overlayColor;
+  final RoundedRectangleBorder? border;
 
   const AppButton({
     super.key,
@@ -18,6 +20,8 @@ class AppButton extends StatelessWidget {
     this.padding,
     this.margin,
     this.buttonColor,
+    this.overlayColor,
+    this.border,
   });
 
   @override
@@ -25,19 +29,23 @@ class AppButton extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
-      padding: padding,
       margin: margin,
       height: height,
       width: width,
       child: FilledButton(
         onPressed: onPressed,
         style: ButtonStyle(
+          padding: MaterialStatePropertyAll(padding),
           backgroundColor: MaterialStatePropertyAll(buttonColor),
+          overlayColor: MaterialStatePropertyAll(overlayColor),
           textStyle: MaterialStatePropertyAll(
             textTheme.titleMedium!.copyWith(
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
+          ),
+          shape: MaterialStatePropertyAll(
+            border,
           ),
         ),
         child: child,

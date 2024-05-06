@@ -8,5 +8,12 @@
     "descriptionWalkthrough2": "Your satisfaction is our number one priority",
     "descriptionWalkthrough3": "Let's fulfill your daily needs with Evira right now!",
     "next": "Next",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "letYouIn": "Let's you in",
+    "continueWithFacebook": "Continue with Facebook",
+    "continueWithGoogle": "Continue with Google",
+    "or": "or",
+    "signInWithPassword": "Sign in with password",
+    "dontHaveAnAccount": "Don't have an account?",
+    "signUp": "Sign up"
 }

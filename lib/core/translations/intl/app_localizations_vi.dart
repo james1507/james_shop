@@ -33,4 +33,25 @@ class SVi extends S {
 
   @override
   String get getStarted => 'Bắt đầu';
+
+  @override
+  String get letYouIn => 'Cho bạn vào nhé';
+
+  @override
+  String get continueWithFacebook => 'Tiếp tục với Facebook';
+
+  @override
+  String get continueWithGoogle => 'Tiếp tục với Google';
+
+  @override
+  String get or => 'hoặc';
+
+  @override
+  String get signInWithPassword => 'Đăng nhập với mật khẩu';
+
+  @override
+  String get dontHaveAnAccount => 'Bạn chưa có tài khoản?';
+
+  @override
+  String get signUp => 'Đăng ký';
 }

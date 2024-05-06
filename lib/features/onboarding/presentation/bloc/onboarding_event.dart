@@ -22,4 +22,4 @@ class ChangeCurrentPageEvent extends OnboardingEvent {
   });
 }
 
-class NavigateToHomeEvent extends OnboardingEvent {}
+class NavigateToAccountAuthEvent extends OnboardingEvent {}

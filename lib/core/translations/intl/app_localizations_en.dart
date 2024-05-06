@@ -33,4 +33,25 @@ class SEn extends S {
 
   @override
   String get getStarted => 'Get Started';
+
+  @override
+  String get letYouIn => 'Let\'s you in';
+
+  @override
+  String get continueWithFacebook => 'Continue with Facebook';
+
+  @override
+  String get continueWithGoogle => 'Continue with Google';
+
+  @override
+  String get or => 'or';
+
+  @override
+  String get signInWithPassword => 'Sign in with password';
+
+  @override
+  String get dontHaveAnAccount => 'Don\'t have an account?';
+
+  @override
+  String get signUp => 'Sign up';
 }

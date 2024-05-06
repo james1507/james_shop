@@ -143,7 +143,7 @@ class _WalkthroughPageState extends State<WalkthroughPage>
       child: Text(getTitleButton),
       onPressed: () {
         if (index == TabWalkthroughEnum.values.length) {
-          _bloc.add(NavigateToHomeEvent());
+          _bloc.add(NavigateToAccountAuthEvent());
         } else {
           _bloc.add(ChangeCurrentPageEvent(currentPageIndex: index));
         }

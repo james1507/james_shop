@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:james_shop/features/account_auth/presentation/page/account_auth_page.dart';
+import 'package:james_shop/features/home/presentation/page/home_page.dart';
 import 'package:james_shop/features/splash/presentation/page/splash_page.dart';
 import 'package:james_shop/features/onboarding/presentation/page/walkthrough_page.dart';
 import 'package:james_shop/features/onboarding/presentation/page/welcome_page.dart';
@@ -28,6 +30,22 @@ class AppRouter {
           settings: RouteSettings(name: settings.name),
           builder: (_) {
             return const WalkthroughPage();
+          },
+        );
+
+      case '/home_page':
+        return MaterialPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) {
+            return const HomePage();
+          },
+        );
+
+      case '/account_auth_page':
+        return MaterialPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) {
+            return const AccountAuthPage();
           },
         );
       default:
