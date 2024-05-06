@@ -46,6 +46,7 @@ final ThemeData appTheme = ThemeData(
   ),
   colorScheme: ColorScheme.fromSwatch().copyWith(
     secondary: AppColors.primaryColor,
+    onSecondary: AppColors.greyscale50,
     onSurface: AppColors.white,
   ),
   inputDecorationTheme: InputDecorationTheme(
@@ -110,6 +111,7 @@ final ThemeData darkAppTheme = ThemeData(
   ),
   colorScheme: ColorScheme.fromSwatch().copyWith(
     secondary: AppColors.primaryColor,
+    onSecondary: AppColors.darkDark2,
     onSurface: AppColors.primaryColor,
   ),
   inputDecorationTheme: InputDecorationTheme(
