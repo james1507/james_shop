@@ -19,3 +19,9 @@ class LoginSuccess extends LoginState {
 
   const LoginSuccess({required this.response});
 }
+
+class EmailFocusedState extends LoginState {}
+
+class PasswordFocusedState extends LoginState {}
+
+class RememberMeState extends LoginState {}

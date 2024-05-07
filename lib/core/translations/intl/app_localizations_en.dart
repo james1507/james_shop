@@ -56,7 +56,7 @@ class SEn extends S {
   String get signUp => 'Sign up';
 
   @override
-  String get loginTitle => 'Login to your\nAccount';
+  String get loginTitle => 'Login to your Account';
 
   @override
   String get email => 'Email';

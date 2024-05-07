@@ -56,7 +56,7 @@ class SVi extends S {
   String get signUp => 'Đăng ký';
 
   @override
-  String get loginTitle => 'Đăng nhập vào tài khoản\ncủa bạn';
+  String get loginTitle => 'Đăng nhập vào tài khoản của bạn';
 
   @override
   String get email => 'Email';

@@ -12,6 +12,7 @@ class UserEntity {
   DateTime? createdDate;
   String? token;
   String? refreshToken;
+  bool? rememberMe;
 
   UserEntity({
     this.id,
@@ -22,6 +23,7 @@ class UserEntity {
     this.createdDate,
     this.token,
     this.refreshToken,
+    this.rememberMe,
   });
 
   factory UserEntity.fromJson(json) => _$UserEntityFromJson(json);
@@ -42,6 +44,31 @@ class UserEntity {
       'createdDate': createdDate,
       'token': token,
       'refreshToken': refreshToken,
+      'rememberMe': rememberMe,
     };
+  }
+
+  UserEntity copyWith({
+    String? id,
+    String? email,
+    String? firstName,
+    String? lastName,
+    String? role,
+    DateTime? createdDate,
+    String? token,
+    String? refreshToken,
+    bool? rememberMe,
+  }) {
+    return UserEntity(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      role: role ?? this.role,
+      createdDate: createdDate ?? this.createdDate,
+      token: token ?? this.token,
+      refreshToken: refreshToken ?? this.refreshToken,
+      rememberMe: rememberMe ?? this.rememberMe,
+    );
   }
 }

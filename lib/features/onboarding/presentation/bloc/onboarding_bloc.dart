@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:james_shop/core/flavors/app.dart';
 import 'package:james_shop/core/router/app_route_enum.dart';
+import 'package:james_shop/core/utils/injections.dart';
+import 'package:james_shop/shared/data/data_sources/app_shared_prefs.dart';
 
 part 'onboarding_event.dart';
 part 'onboarding_state.dart';
@@ -44,6 +46,8 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
 
   _onNavigateToAccountAuth(
       NavigateToAccountAuthEvent event, Emitter<OnboardingState> emitter) {
+    sl<AppSharedPrefs>().setFirstRun(false);
+
     Navigator.of(navigatorKey.currentContext!).pushNamedAndRemoveUntil(
       AppRouteEnum.accountAuthPage.name,
       (route) => false,

@@ -43,7 +43,19 @@ class AppSharedPrefs {
       _preferences.remove(LocalStorageConstants.user);
     } else {
       _preferences.setString(
-          LocalStorageConstants.user, json.encode(user.toMap()));
+          LocalStorageConstants.user, json.encode(user.toJson()));
+    }
+  }
+
+  bool isFirstRun() {
+    return _preferences.getBool(LocalStorageConstants.isFirstRun) ?? true;
+  }
+
+  void setFirstRun(bool? isFirstRun) {
+    if (isFirstRun == null) {
+      _preferences.remove(LocalStorageConstants.isFirstRun);
+    } else {
+      _preferences.setBool(LocalStorageConstants.isFirstRun, isFirstRun);
     }
   }
 }

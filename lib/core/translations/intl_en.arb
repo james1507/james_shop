@@ -1,4 +1,5 @@
 {
+    "@@locale": "en",
     "vietnamese": "Tiếng Việt",
     "english": "English",
     "james": "James",
@@ -16,7 +17,7 @@
     "signInWithPassword": "Sign in with password",
     "dontHaveAnAccount": "Don't have an account?",
     "signUp": "Sign up",
-    "loginTitle": "Login to your\nAccount",
+    "loginTitle": "Login to your Account",
     "email": "Email",
     "password": "Password",
     "rememberMe": "Remember me",

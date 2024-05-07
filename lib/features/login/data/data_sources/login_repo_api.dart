@@ -21,8 +21,10 @@ class LoginRepositoryApi extends AbstractLoginApi {
       final loginResponse = LoginResponse.fromJson(response);
 
       return loginResponse;
-    } on DioException {
-      return null;
+    } on DioException catch (e) {
+      final errorResponse = LoginResponse.fromJson(e.response?.data);
+
+      return errorResponse;
     } catch (e) {
       return null;
     }

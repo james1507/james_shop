@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:james_shop/core/style/app_colors.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 
 class AppLoader extends StatelessWidget {
   final Color? iconColor;
@@ -11,18 +12,24 @@ class AppLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SpinKitFadingCircle(
-            itemBuilder: (BuildContext context, int index) {
-              return DecoratedBox(
-                decoration: BoxDecoration(
-                    color: iconColor ?? Theme.of(context).iconTheme.color,
-                    borderRadius: BorderRadius.circular(25)),
-              );
-            },
-          )),
+    final theme = Theme.of(context);
+
+    return Stack(
+      children: [
+        Container(
+          color: theme.primaryColor.withOpacity(0.5),
+        ),
+        const Center(
+          child: SizedBox(
+            height: 50,
+            width: 50,
+            child: LoadingIndicator(
+              indicatorType: Indicator.ballSpinFadeLoader,
+              colors: [AppColors.white],
+            ),
+          ),
+        )
+      ],
     );
   }
 }

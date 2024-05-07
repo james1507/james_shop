@@ -45,9 +45,11 @@ final ThemeData appTheme = ThemeData(
     ),
   ),
   colorScheme: ColorScheme.fromSwatch().copyWith(
+    onPrimary: AppColors.white,
     secondary: AppColors.primaryColor,
     onSecondary: AppColors.greyscale50,
     onSurface: AppColors.white,
+    error: AppColors.alertsStatusError,
   ),
   inputDecorationTheme: InputDecorationTheme(
       fillColor: AppColors.transparent,
@@ -110,9 +112,11 @@ final ThemeData darkAppTheme = ThemeData(
     ),
   ),
   colorScheme: ColorScheme.fromSwatch().copyWith(
+    onPrimary: AppColors.primaryColor,
     secondary: AppColors.primaryColor,
     onSecondary: AppColors.darkDark2,
     onSurface: AppColors.primaryColor,
+    error: AppColors.alertsStatusError,
   ),
   inputDecorationTheme: InputDecorationTheme(
     contentPadding: EdgeInsets.symmetric(

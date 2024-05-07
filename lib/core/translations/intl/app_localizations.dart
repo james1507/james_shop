@@ -198,7 +198,7 @@ abstract class S {
   /// No description provided for @loginTitle.
   ///
   /// In en, this message translates to:
-  /// **'Login to your\nAccount'**
+  /// **'Login to your Account'**
   String get loginTitle;
 
   /// No description provided for @email.

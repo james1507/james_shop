@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:james_shop/core/style/app_colors.dart';
 
 class AppTextInput extends StatefulWidget {
   final TextEditingController? controller;
-  final Widget? icon;
+  final IconData? icon;
   final String? hintText;
   final OutlineInputBorder? border;
   final FocusNode? focusNode;
   final bool showTogglePassword;
+  final TextInputAction? textInputAction;
+  final Function(String)? onSubmitted;
+  final Function()? onTap;
 
   const AppTextInput({
     super.key,
@@ -18,6 +20,9 @@ class AppTextInput extends StatefulWidget {
     this.hintText,
     this.border,
     this.showTogglePassword = false,
+    this.textInputAction,
+    this.onSubmitted,
+    this.onTap,
   });
 
   @override
@@ -47,7 +52,7 @@ class _AppTextInputState extends State<AppTextInput> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return TextFormField(
+    return TextField(
       controller: widget.controller,
       focusNode: _focusNode,
       decoration: InputDecoration(
@@ -69,15 +74,26 @@ class _AppTextInputState extends State<AppTextInput> {
         hintText: widget.hintText,
         hintStyle: theme.textTheme.titleSmall!.copyWith(
           fontSize: 14,
-          color: AppColors.greyscale500,
+          color: (_focusNode?.hasFocus ?? false)
+              ? theme.primaryColor
+              : AppColors.greyscale500,
         ),
-        prefixIcon: widget.icon,
+        prefixIcon: Icon(
+          widget.icon,
+          color: (_focusNode?.hasFocus ?? false)
+              ? theme.primaryColor
+              : AppColors.greyscale500,
+        ),
         suffixIcon: Visibility(
           visible: widget.showTogglePassword,
           child: IconButton(
             icon: Icon(
-              _obscured ? Icons.visibility_rounded : Icons.visibility_off_rounded,
-              color: AppColors.greyscale500,
+              _obscured
+                  ? Icons.visibility_off_rounded
+                  : Icons.visibility_rounded,
+              color: (_focusNode?.hasFocus ?? false)
+                  ? theme.primaryColor
+                  : AppColors.greyscale500,
             ),
             onPressed: _toggleObscured,
           ),
@@ -89,7 +105,14 @@ class _AppTextInputState extends State<AppTextInput> {
         fontWeight: FontWeight.bold,
         fontSize: 16,
       ),
-      cursorColor: AppColors.greyscale500,
+      cursorColor: (_focusNode?.hasFocus ?? false)
+          ? theme.primaryColor
+          : AppColors.greyscale500,
+      textInputAction: widget.textInputAction,
+      onSubmitted: widget.onSubmitted,
+      onTap: widget.onTap,
+      obscureText: widget.showTogglePassword ? _obscured : false,
+      obscuringCharacter: '●',
     );
   }
 }

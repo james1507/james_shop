@@ -15,8 +15,10 @@ class LoginRepositoryImpl extends AbstractLoginRepository {
       final response = await loginApi.login(body);
 
       return response;
-    } on DioException {
-      return null;
+    } on DioException catch (e) {
+      final errorResponse = LoginResponse.fromJson(e.response);
+
+      return errorResponse;
     } catch (e) {
       return null;
     }
