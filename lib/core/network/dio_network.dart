@@ -10,10 +10,10 @@ import 'package:james_shop/core/utils/log/logger.dart';
 import 'package:james_shop/shared/data/data_sources/app_shared_prefs.dart';
 
 class DioNetwork {
-  static Dio dio = Dio();
+  static late Dio dio;
 
   static void initDio() {
-    final dio = Dio(baseOptions(NetworkConstant.apiUrl));
+    dio = Dio(baseOptions(NetworkConstant.apiUrl));
     dio.interceptors.add(loggerInterceptor());
     dio.interceptors.add(appQueuedInterceptorsWrapper());
   }
@@ -53,40 +53,9 @@ class DioNetwork {
         options.headers = headers;
         dio.options.headers = headers;
 
-        final method = options.method;
-        final uri = options.uri;
-        final data = options.data;
-
-        apiLogger.log(
-            "\n\n--------------------------------------------------------------------------------------------------------");
-        if (method == 'GET') {
-          apiLogger.log(
-              "✈️ REQUEST[$method] => PATH: $uri \n Token: ${options.headers}",
-              printFullText: true);
-        } else {
-          try {
-            apiLogger.log(
-                "✈️ REQUEST[$method] => PATH: $uri \n Token: $token \n DATA: ${jsonEncode(data)}",
-                printFullText: true);
-          } catch (e) {
-            apiLogger.log(
-                "✈️ REQUEST[$method] => PATH: $uri \n Token: $token \n DATA: $data",
-                printFullText: true);
-          }
-        }
-
         return r.next(options);
       },
       onError: (error, handler) async {
-        final statusCode = error.response?.statusCode;
-        final uri = error.requestOptions.path;
-        var data = "";
-        try {
-          data = jsonEncode(error.response?.data);
-        } catch (e) {
-          apiLogger.e(e);
-        }
-        apiLogger.log("⚠️ ERROR[$statusCode] => PATH: $uri\n DATA: $data");
         try {
           return handler.next(error);
         } catch (e) {
@@ -96,12 +65,6 @@ class DioNetwork {
       },
       onResponse: (Response<dynamic> response,
           ResponseInterceptorHandler handler) async {
-        final statusCode = response.statusCode;
-        final uri = response.requestOptions.uri;
-        final data = jsonEncode(response.data);
-
-        apiLogger.log("✅ RESPONSE[$statusCode] => PATH: $uri\n DATA: $data");
-
         return handler.next(response);
       },
     );
