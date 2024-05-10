@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:james_shop/core/translations/l10n.dart';
-import 'package:james_shop/core/utils/injections.dart';
 import 'package:james_shop/features/login/domain/models/login_body.dart';
-import 'package:james_shop/features/login/domain/usecases/login_usecase.dart';
+import 'package:james_shop/features/login/domain/models/login_social_body.dart';
 import 'package:james_shop/features/login/presentation/bloc/login_bloc.dart';
 import 'package:james_shop/shared/domain/enum/social_enum.dart';
 import 'package:james_shop/shared/presentation/widgets/app_button.dart';
@@ -20,7 +19,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _bloc = LoginBloc(sl<LoginUseCase>());
+  final _bloc = LoginBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -237,6 +236,8 @@ class _LoginPageState extends State<LoginPage> {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
+          SocialEnum socialEnum = SocialEnum.values[index];
+
           return AppButton(
             width: 88,
             buttonColor: theme.colorScheme.onBackground,
@@ -249,7 +250,9 @@ class _LoginPageState extends State<LoginPage> {
                 strokeAlign: 0.5,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              callSocialLogin(socialEnum);
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -308,6 +311,17 @@ class _LoginPageState extends State<LoginPage> {
 
     _bloc.add(
       LoginButtonPressedEvent(
+        body: loginBody,
+        loading: loading,
+      ),
+    );
+  }
+
+  callSocialLogin(SocialEnum socialEnum, {bool loading = true}) {
+    final LoginSocialBody loginBody = LoginSocialBody(socialType: socialEnum);
+
+    _bloc.add(
+      SoicalLoginButtonPressedEvent(
         body: loginBody,
         loading: loading,
       ),

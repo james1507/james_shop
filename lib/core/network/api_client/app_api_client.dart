@@ -12,4 +12,7 @@ abstract class AppApiClient {
 
   @POST('/users/login')
   Future<dynamic> login(@Body() Map<String, dynamic> body);
+
+  @POST('/users/social-login')
+  Future<dynamic> loginSocial(@Body() Map<String, dynamic> body);
 }

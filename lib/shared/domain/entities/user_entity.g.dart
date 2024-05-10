@@ -17,7 +17,7 @@ UserEntity _$UserEntityFromJson(Map<String, dynamic> json) => UserEntity(
           : DateTime.parse(json['created_date'] as String),
       token: json['token'] as String?,
       refreshToken: json['refresh_token'] as String?,
-      rememberMe: json['remember_me'] as bool? ?? false,
+      rememberMe: json['remember_me'] as bool?,
     );
 
 Map<String, dynamic> _$UserEntityToJson(UserEntity instance) =>

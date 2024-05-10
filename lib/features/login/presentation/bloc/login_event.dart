@@ -14,6 +14,16 @@ class LoginButtonPressedEvent extends LoginEvent {
   });
 }
 
+class SoicalLoginButtonPressedEvent extends LoginEvent {
+  final bool loading;
+  final LoginSocialBody body;
+
+  const SoicalLoginButtonPressedEvent({
+    required this.loading,
+    required this.body,
+  });
+}
+
 class RequestFocusedEvent extends LoginEvent {}
 
 class EmailFocusedEvent extends LoginEvent {}

@@ -1,8 +1,6 @@
-
-
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:james_shop/features/login/domain/models/login_social_body.dart';
 
 abstract class AbstractSocialAuth {
-  Future<UserCredential?> signInWithGoogle();
-  Future<UserCredential?> signInWithFacebook();
+  Future<LoginSocialBody?> signInWithGoogle();
+  Future<LoginSocialBody?> signInWithFacebook();
 }

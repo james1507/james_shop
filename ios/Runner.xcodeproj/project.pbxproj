@@ -139,7 +139,6 @@
 				4661EFC02EAF59430A37D865 /* Pods-RunnerTests.profile-prod.xcconfig */,
 				A319B71912DB9B036D8D498E /* Pods-RunnerTests.release-prod.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -562,6 +561,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA27247D0AA0CC24A3478239 /* Pods-Runner.debug-dev.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-dev";
@@ -570,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9161D80FF24CD3EB284DE00D /* Pods-Runner.profile-dev.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-dev";
@@ -578,6 +579,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69960465A6D326673E953C29 /* Pods-Runner.release-dev.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-dev";
@@ -586,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A949475AB7F8593BD50083D2 /* Pods-Runner.debug-prod.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-prod";
@@ -594,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DB1DAF16EA22DA834265F3A2 /* Pods-Runner.profile-prod.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-prod";
@@ -602,6 +606,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9B7615C9B3CC4C1959772300 /* Pods-Runner.release-prod.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-prod";
@@ -711,6 +716,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1173,6 +1179,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1195,6 +1202,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 8BSCA4RD5W;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

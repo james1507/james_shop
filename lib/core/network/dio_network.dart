@@ -6,7 +6,6 @@ import 'package:james_shop/core/network/logger_interceptor.dart';
 import 'package:james_shop/core/utils/constant/network_constant.dart';
 import 'package:james_shop/core/utils/injections.dart';
 import 'package:james_shop/core/utils/log/app_logger.dart';
-import 'package:james_shop/core/utils/log/logger.dart';
 import 'package:james_shop/shared/data/data_sources/app_shared_prefs.dart';
 
 class DioNetwork {

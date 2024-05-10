@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:james_shop/features/login/data/data_sources/abstract_login_api.dart';
 import 'package:james_shop/features/login/domain/models/login_body.dart';
 import 'package:james_shop/features/login/domain/models/login_response.dart';
+import 'package:james_shop/features/login/domain/models/login_social_body.dart';
 import 'package:james_shop/features/login/domain/repositories/abstract_login_repository.dart';
 
 class LoginRepositoryImpl extends AbstractLoginRepository {
@@ -13,6 +14,21 @@ class LoginRepositoryImpl extends AbstractLoginRepository {
   Future<LoginResponse?> login(LoginBody? body) async {
     try {
       final response = await loginApi.login(body);
+
+      return response;
+    } on DioException catch (e) {
+      final errorResponse = LoginResponse.fromJson(e.response);
+
+      return errorResponse;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  @override
+  Future<LoginResponse?> socialLogin(LoginSocialBody? body) async {
+    try {
+      final response = await loginApi.socialLogin(body);
 
       return response;
     } on DioException catch (e) {
