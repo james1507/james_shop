@@ -52,21 +52,24 @@
         <string>Editor</string>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>fb1226498908313976</string>
+          <string>fb1546605619620282</string>
           <string>com.googleusercontent.apps.1005051054431-n4iiag4r836s806jicceltddt06prtco.apps.googleusercontent.com</string>
+		  <string>com.googleusercontent.apps.1005051054431-05ubfaf2c0bhl83h185k17klo1a3fb23</string>
         </array>
       </dict>
     </array>
     <key>FacebookAppID</key>
-    <string>1226498908313976</string>
+    <string>1546605619620282</string>
     <key>FacebookClientToken</key>
-    <string>7cfadcde909a4c0bbaa4fc7033ba9865</string>
+    <string>2d0795a796aac8d704ab96b424f5cab3</string>
     <key>FacebookDisplayName</key>
     <string>James Shop</string>
     <key>LSApplicationQueriesSchemes</key>
     <array>
-      <string>fbapi</string>
-      <string>fb-messenger-share-api</string>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
     </array>
 </dict>
 </plist>

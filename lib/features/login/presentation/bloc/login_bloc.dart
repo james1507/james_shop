@@ -83,7 +83,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (result != null && result.user != null) {
       emitter(LoginSuccess(response: result));
       UserEntity? user = result.user;
-      user = user?.copyWith(rememberMe: rememberMe);
+      user = user?.copyWith(rememberMe: true);
       sl<AppSharedPrefs>().setUser(user);
       Navigator.of(navigatorKey.currentContext!)
           .pushNamed(AppRouteEnum.homePage.name);

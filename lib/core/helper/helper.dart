@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:james_shop/core/utils/constant/app_constants.dart';
 import 'package:james_shop/core/utils/injections.dart';
 import 'package:james_shop/shared/data/data_sources/app_shared_prefs.dart';
 import 'package:james_shop/shared/domain/enum/language_enum.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Helper {
   /// Get language
@@ -43,7 +44,7 @@ class Helper {
     return sl<AppSharedPrefs>().getIsDarkTheme();
   }
 
-    static Map<String, dynamic> get headerAfterLogin {
+  static Map<String, dynamic> get headerAfterLogin {
     final token = sl<AppSharedPrefs>().getUser()?.token ?? "";
     Map<String, dynamic> headers = {
       "Content-Type": "application/json",
@@ -59,5 +60,17 @@ class Helper {
     };
 
     return headers;
+  }
+
+  static showToast(String message) {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.black,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
   }
 }

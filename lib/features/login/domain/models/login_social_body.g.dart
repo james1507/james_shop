@@ -8,6 +8,7 @@ part of 'login_social_body.dart';
 
 LoginSocialBody _$LoginSocialBodyFromJson(Map<String, dynamic> json) =>
     LoginSocialBody(
+      email: json['email'] as String?,
       socialAuthId: json['socialAuthId'] as String?,
       socialToken: json['socialToken'] as String?,
       firstName: json['firstName'] as String?,
@@ -17,6 +18,7 @@ LoginSocialBody _$LoginSocialBodyFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$LoginSocialBodyToJson(LoginSocialBody instance) =>
     <String, dynamic>{
+      'email': instance.email,
       'socialAuthId': instance.socialAuthId,
       'socialToken': instance.socialToken,
       'socialType': _$SocialEnumEnumMap[instance.socialType],

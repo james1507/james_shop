@@ -33,6 +33,7 @@ dependencies:
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
   equatable: ^2.0.5
+  fluttertoast: ^8.2.5
 
 dev_dependencies:
   flutter_test:

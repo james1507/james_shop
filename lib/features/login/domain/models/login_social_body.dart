@@ -5,6 +5,7 @@ part 'login_social_body.g.dart';
 
 @JsonSerializable()
 class LoginSocialBody {
+  String? email;
   String? socialAuthId;
   String? socialToken;
   SocialEnum? socialType;
@@ -12,6 +13,7 @@ class LoginSocialBody {
   String? lastName;
 
   LoginSocialBody({
+    this.email,
     this.socialAuthId,
     this.socialToken,
     this.firstName,
