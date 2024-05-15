@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:james_shop/core/translations/l10n.dart';
 import 'package:james_shop/core/utils/constant/app_assets.dart';
 import 'package:james_shop/features/account_auth/presentation/bloc/account_auth_bloc.dart';
+import 'package:james_shop/features/login/domain/models/login_social_body.dart';
 import 'package:james_shop/shared/domain/enum/social_enum.dart';
 import 'package:james_shop/shared/presentation/widgets/app_button.dart';
+import 'package:james_shop/shared/presentation/widgets/app_loader.dart';
 
 class AccountAuthPage extends StatefulWidget {
   const AccountAuthPage({super.key});
@@ -30,15 +33,25 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _imageAndTitle(),
-          _socials(),
-          _or(),
-          _signInWithPassword(),
-          _signUp(),
-        ],
+      body: BlocBuilder<AccountAuthBloc, AccountAuthState>(
+        bloc: _bloc,
+        builder: (context, state) {
+          return Stack(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _imageAndTitle(),
+                  _socials(),
+                  _or(),
+                  _signInWithPassword(),
+                  _signUp(),
+                ],
+              ),
+              if (state is AccountAuthLoading) const AppLoader()
+            ],
+          );
+        },
       ),
     );
   }
@@ -73,6 +86,8 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
       shrinkWrap: true,
       itemBuilder: (context, index) {
+        SocialEnum socialEnum = SocialEnum.values[index];
+
         return AppButton(
           buttonColor: theme.colorScheme.onBackground,
           overlayColor: theme.colorScheme.secondary.withOpacity(0.1),
@@ -84,7 +99,9 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
               strokeAlign: 0.5,
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            callSocialLogin(socialEnum);
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -203,6 +220,17 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  callSocialLogin(SocialEnum socialEnum, {bool loading = true}) {
+    final LoginSocialBody loginBody = LoginSocialBody(socialType: socialEnum);
+
+    _bloc.add(
+      SoicalLoginButtonPressedEvent(
+        body: loginBody,
+        loading: loading,
       ),
     );
   }
