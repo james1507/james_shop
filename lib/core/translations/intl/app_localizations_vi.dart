@@ -75,4 +75,10 @@ class SVi extends S {
 
   @override
   String get orContinueWith => 'hoặc tiếp tục với';
+
+  @override
+  String get registerTitle => ' Tạo tài khoản mới';
+
+  @override
+  String get alreadyHaveAnAccount => 'Bạn đã có tài khoản?';
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:james_shop/core/translations/l10n.dart';
-import 'package:james_shop/features/login/presentation/bloc/login_bloc.dart';
+import 'package:james_shop/features/register/presentation/bloc/register_bloc.dart';
 import 'package:james_shop/shared/domain/entities/auth_body.dart';
 import 'package:james_shop/shared/domain/enum/social_enum.dart';
 import 'package:james_shop/shared/presentation/widgets/app_button.dart';
@@ -10,26 +10,26 @@ import 'package:james_shop/shared/presentation/widgets/app_loader.dart';
 import 'package:james_shop/shared/presentation/widgets/app_text_input.dart';
 import 'package:james_shop/shared/presentation/widgets/auth_appbar.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final _bloc = LoginBloc();
+class _RegisterPageState extends State<RegisterPage> {
+  final _bloc = RegisterBloc();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<LoginBloc, LoginState>(
+      body: BlocBuilder<RegisterBloc, RegisterState>(
         bloc: _bloc,
         builder: (context, state) {
           return Stack(
             children: [
               AuthAppbar(
-                title: lang.loginTitle,
+                title: lang.registerTitle,
                 child: Container(
                   margin:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
@@ -38,22 +38,18 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       _textInputFields(state),
                       const SizedBox(height: 10),
-                      _rememberMe(),
-                      const SizedBox(height: 10),
-                      _signButton(),
-                      const SizedBox(height: 10),
-                      _forgotThePassword(),
+                      _signUpButton(),
                       const SizedBox(height: 24),
                       _orContinueWith(),
                       _socials(),
                       const SizedBox(height: 24),
-                      _signUp(),
+                      _signIn(),
                       const SizedBox(height: 24),
                     ],
                   ),
                 ),
               ),
-              if (state is LoginLoading) const AppLoader()
+              if (state is RegisterLoading) const AppLoader()
             ],
           );
         },
@@ -61,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _textInputFields(LoginState state) {
+  Widget _textInputFields(RegisterState state) {
     final theme = Theme.of(context);
 
     return Column(
@@ -97,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
           },
         ),
         const SizedBox(height: 24),
-        if (state is LoginError)
+        if (state is RegisterError)
           Text(
             _bloc.error,
             style: theme.textTheme.titleSmall!.copyWith(
@@ -110,44 +106,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _rememberMe() {
-    final theme = Theme.of(context);
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Checkbox(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6),
-          ),
-          side: MaterialStateBorderSide.resolveWith(
-            (states) => BorderSide(
-              width: 3.0,
-              color: theme.primaryColor,
-              strokeAlign: 0.5,
-            ),
-          ),
-          activeColor: theme.primaryColor,
-          value: _bloc.rememberMe,
-          onChanged: (value) {
-            _bloc.add(RememberMeEvent(rememberMe: value!));
-          },
-          overlayColor: MaterialStatePropertyAll(
-            theme.primaryColor.withOpacity(0.1),
-          ),
-        ),
-        Text(
-          lang.rememberMe,
-          style: theme.textTheme.titleSmall!.copyWith(
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _signButton() {
+  Widget _signUpButton() {
     final size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
 
@@ -156,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
       width: size.width,
       buttonColor: theme.primaryColor,
       child: Text(
-        lang.signIn,
+        lang.signUp,
         style: theme.textTheme.titleMedium!.copyWith(
           fontSize: 16,
           fontWeight: FontWeight.bold,
@@ -166,27 +125,6 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {
         callLogin();
       },
-    );
-  }
-
-  Widget _forgotThePassword() {
-    final theme = Theme.of(context);
-
-    return TextButton(
-      style: ButtonStyle(
-        overlayColor: MaterialStatePropertyAll(
-          theme.primaryColor.withOpacity(0.1),
-        ),
-      ),
-      onPressed: () {},
-      child: Text(
-        lang.forgotPassword,
-        style: theme.textTheme.titleSmall!.copyWith(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: theme.primaryColor,
-        ),
-      ),
     );
   }
 
@@ -268,14 +206,14 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _signUp() {
+  Widget _signIn() {
     final theme = Theme.of(context);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          lang.dontHaveAnAccount,
+          lang.alreadyHaveAnAccount,
           style: theme.textTheme.titleMedium!.copyWith(
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -289,10 +227,10 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           onPressed: () {
-            _bloc.add(NavigateToRegisterEvent());
+            _bloc.add(NavigateToLoginEvent());
           },
           child: Text(
-            lang.signUp,
+            lang.signIn,
             style: theme.textTheme.titleMedium!.copyWith(
               fontSize: 14,
               fontWeight: FontWeight.bold,
@@ -311,7 +249,7 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     _bloc.add(
-      LoginButtonPressedEvent(
+      RegisterButtonPressedEvent(
         body: loginBody,
         loading: loading,
       ),

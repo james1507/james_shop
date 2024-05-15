@@ -6,7 +6,7 @@ abstract class AccountAuthEvent {
 
 class SoicalLoginButtonPressedEvent extends AccountAuthEvent {
   final bool loading;
-  final LoginSocialBody body;
+  final AuthBody body;
 
   const SoicalLoginButtonPressedEvent({
     required this.loading,
@@ -15,3 +15,5 @@ class SoicalLoginButtonPressedEvent extends AccountAuthEvent {
 }
 
 class NavigateToLoginEvent extends AccountAuthEvent {}
+
+class NavigateToRegisterEvent extends AccountAuthEvent {}

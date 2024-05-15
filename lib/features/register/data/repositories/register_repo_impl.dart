@@ -1,19 +1,18 @@
 import 'package:dio/dio.dart';
-import 'package:james_shop/features/login/data/data_sources/abstract_login_api.dart';
-
-import 'package:james_shop/features/login/domain/repositories/abstract_login_repository.dart';
+import 'package:james_shop/features/register/data/data_sources/abstract_register_api.dart';
+import 'package:james_shop/features/register/domain/repositories/abstract_register_repository.dart';
 import 'package:james_shop/shared/domain/entities/auth_body.dart';
 import 'package:james_shop/shared/domain/entities/auth_response.dart';
 
-class LoginRepositoryImpl extends AbstractLoginRepository {
-  final AbstractLoginApi loginApi;
+class RegisterRepositoryImpl extends AbstractRegisterRepository {
+  final AbstractRegisterApi registerApi;
 
-  LoginRepositoryImpl(this.loginApi);
+  RegisterRepositoryImpl(this.registerApi);
 
   @override
-  Future<AuthResponse?> login(AuthBody? body) async {
+  Future<AuthResponse?> socialLogin(AuthBody? body) async {
     try {
-      final response = await loginApi.login(body);
+      final response = await registerApi.socialLogin(body);
 
       return response;
     } on DioException catch (e) {
@@ -26,9 +25,9 @@ class LoginRepositoryImpl extends AbstractLoginRepository {
   }
 
   @override
-  Future<AuthResponse?> socialLogin(AuthBody? body) async {
+  Future<AuthResponse?> register(AuthBody? body) async {
     try {
-      final response = await loginApi.socialLogin(body);
+      final response = await registerApi.register(body);
 
       return response;
     } on DioException catch (e) {

@@ -1,22 +1,22 @@
 import 'package:dio/dio.dart';
 import 'package:james_shop/core/network/api_client/app_api_client.dart';
 import 'package:james_shop/core/utils/constant/network_constant.dart';
-import 'package:james_shop/features/login/data/data_sources/abstract_login_api.dart';
+import 'package:james_shop/features/register/data/data_sources/abstract_register_api.dart';
 import 'package:james_shop/shared/domain/entities/auth_body.dart';
 import 'package:james_shop/shared/domain/entities/auth_response.dart';
 
-class LoginRepositoryApi extends AbstractLoginApi {
+class RegisterRepositoryApi extends AbstractRegisterApi {
   late AppApiClient apiClient;
   final Dio dio;
 
-  LoginRepositoryApi(this.dio) {
+  RegisterRepositoryApi(this.dio) {
     apiClient = AppApiClient(dio, baseUrl: NetworkConstant.apiUrl);
   }
 
   @override
-  Future<AuthResponse?> login(AuthBody? body) async {
+  Future<AuthResponse?> socialLogin(AuthBody? body) async {
     try {
-      final response = await apiClient.login(body?.toJson() ?? {});
+      final response = await apiClient.loginSocial(body?.toJson() ?? {});
 
       final loginResponse = AuthResponse.fromJson(response);
 
@@ -31,9 +31,9 @@ class LoginRepositoryApi extends AbstractLoginApi {
   }
 
   @override
-  Future<AuthResponse?> socialLogin(AuthBody? body) async {
+  Future<AuthResponse?> register(AuthBody? body) async {
     try {
-      final response = await apiClient.loginSocial(body?.toJson() ?? {});
+      final response = await apiClient.register(body?.toJson() ?? {});
 
       final loginResponse = AuthResponse.fromJson(response);
 

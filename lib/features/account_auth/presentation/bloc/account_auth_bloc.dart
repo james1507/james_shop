@@ -4,10 +4,10 @@ import 'package:james_shop/core/flavors/app.dart';
 import 'package:james_shop/core/router/app_route_enum.dart';
 import 'package:james_shop/core/utils/injections.dart';
 import 'package:james_shop/features/account_auth/domain/usecases/social_login_usecase.dart';
-import 'package:james_shop/features/login/domain/models/login_response.dart';
-import 'package:james_shop/features/login/domain/models/login_social_body.dart';
 import 'package:james_shop/shared/data/data_sources/app_shared_prefs.dart';
 import 'package:james_shop/shared/data/repositories/abstract_social_auth.dart';
+import 'package:james_shop/shared/domain/entities/auth_body.dart';
+import 'package:james_shop/shared/domain/entities/auth_response.dart';
 import 'package:james_shop/shared/domain/entities/user_entity.dart';
 import 'package:james_shop/shared/domain/enum/social_enum.dart';
 
@@ -21,13 +21,25 @@ class AccountAuthBloc extends Bloc<AccountAuthEvent, AccountAuthState> {
 
   AccountAuthBloc() : super(AccountAuthInitialState()) {
     on<NavigateToLoginEvent>(_onNavigateToLogin);
+    on<NavigateToRegisterEvent>(_onNavigateToRegister);
     on<SoicalLoginButtonPressedEvent>(_onSoicalLoginButtonPressed);
   }
 
   _onNavigateToLogin(
       NavigateToLoginEvent event, Emitter<AccountAuthState> emitter) {
-    Navigator.of(navigatorKey.currentContext!).pushNamed(
+    Navigator.pushNamedAndRemoveUntil(
+      navigatorKey.currentContext!,
       AppRouteEnum.loginPage.name,
+      ModalRoute.withName(AppRouteEnum.accountAuthPage.name),
+    );
+  }
+
+  _onNavigateToRegister(
+      NavigateToRegisterEvent event, Emitter<AccountAuthState> emitter) {
+    Navigator.pushNamedAndRemoveUntil(
+      navigatorKey.currentContext!,
+      AppRouteEnum.registerPage.name,
+      ModalRoute.withName(AppRouteEnum.accountAuthPage.name),
     );
   }
 
@@ -37,7 +49,7 @@ class AccountAuthBloc extends Bloc<AccountAuthEvent, AccountAuthState> {
       emitter(AccountAuthLoading());
     }
 
-    LoginSocialBody? loginBody;
+    AuthBody? loginBody;
 
     if (event.body.socialType == SocialEnum.facebook) {
       loginBody = await socialAuthRepository.signInWithFacebook();

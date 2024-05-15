@@ -6,7 +6,7 @@ abstract class LoginEvent {
 
 class LoginButtonPressedEvent extends LoginEvent {
   final bool loading;
-  final LoginBody body;
+  final AuthBody body;
 
   const LoginButtonPressedEvent({
     required this.loading,
@@ -16,13 +16,15 @@ class LoginButtonPressedEvent extends LoginEvent {
 
 class SoicalLoginButtonPressedEvent extends LoginEvent {
   final bool loading;
-  final LoginSocialBody body;
+  final AuthBody body;
 
   const SoicalLoginButtonPressedEvent({
     required this.loading,
     required this.body,
   });
 }
+
+class NavigateToRegisterEvent extends LoginEvent {}
 
 class RequestFocusedEvent extends LoginEvent {}
 

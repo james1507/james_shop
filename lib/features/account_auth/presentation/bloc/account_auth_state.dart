@@ -3,6 +3,7 @@ part of 'account_auth_bloc.dart';
 abstract class AccountAuthState {
   const AccountAuthState();
 }
+
 class AccountAuthInitialState extends AccountAuthState {}
 
 class AccountAuthLoading extends AccountAuthState {}
@@ -14,7 +15,7 @@ class AccountAuthError extends AccountAuthState {
 }
 
 class AccountAuthSuccess extends AccountAuthState {
-  final LoginResponse response;
+  final AuthResponse response;
 
   const AccountAuthSuccess({required this.response});
 }

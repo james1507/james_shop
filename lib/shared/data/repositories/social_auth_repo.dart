@@ -1,16 +1,14 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:james_shop/core/helper/helper.dart';
-import 'package:james_shop/features/login/domain/models/login_social_body.dart';
 import 'package:james_shop/shared/data/repositories/abstract_social_auth.dart';
+import 'package:james_shop/shared/domain/entities/auth_body.dart';
 import 'package:james_shop/shared/domain/enum/social_enum.dart';
 
 class SocialAuthRepository extends AbstractSocialAuth {
   @override
-  Future<LoginSocialBody?> signInWithFacebook() async {
+  Future<AuthBody?> signInWithFacebook() async {
     try {
       final result = await FacebookAuth.instance
           .login(permissions: ['public_profile', 'email']);
@@ -24,7 +22,7 @@ class SocialAuthRepository extends AbstractSocialAuth {
         final auth = await FirebaseAuth.instance
             .signInWithCredential(facebookAuthCredential);
 
-        LoginSocialBody? loginBody = LoginSocialBody(
+        AuthBody? loginBody = AuthBody(
           email: auth.user?.email ?? "",
           firstName: auth.user?.displayName?.split(" ").first,
           lastName: auth.user?.displayName?.split(" ").last,
@@ -45,7 +43,7 @@ class SocialAuthRepository extends AbstractSocialAuth {
   }
 
   @override
-  Future<LoginSocialBody?> signInWithGoogle() async {
+  Future<AuthBody?> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -59,7 +57,7 @@ class SocialAuthRepository extends AbstractSocialAuth {
 
       final auth = await FirebaseAuth.instance.signInWithCredential(credential);
 
-      LoginSocialBody? loginBody = LoginSocialBody(
+      AuthBody? loginBody = AuthBody(
         email: auth.user?.email ?? "",
         firstName: (googleUser?.displayName ?? "").split(" ").first,
         lastName: (googleUser?.displayName ?? "").split(" ").last,

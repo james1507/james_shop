@@ -15,7 +15,7 @@ class LoginError extends LoginState {
 }
 
 class LoginSuccess extends LoginState {
-  final LoginResponse response;
+  final AuthResponse response;
 
   const LoginSuccess({required this.response});
 }

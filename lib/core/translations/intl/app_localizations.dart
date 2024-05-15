@@ -236,6 +236,18 @@ abstract class S {
   /// In en, this message translates to:
   /// **'or continue with'**
   String get orContinueWith;
+
+  /// No description provided for @registerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your Account'**
+  String get registerTitle;
+
+  /// No description provided for @alreadyHaveAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAnAccount;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

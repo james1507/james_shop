@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-
 import 'package:james_shop/features/login/domain/repositories/abstract_login_repository.dart';
 import 'package:james_shop/shared/domain/entities/auth_body.dart';
 import 'package:james_shop/shared/domain/entities/auth_response.dart';

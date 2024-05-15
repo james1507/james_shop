@@ -1,6 +1,7 @@
-import 'package:james_shop/features/login/domain/models/login_social_body.dart';
+
+import 'package:james_shop/shared/domain/entities/auth_body.dart';
 
 abstract class AbstractSocialAuth {
-  Future<LoginSocialBody?> signInWithGoogle();
-  Future<LoginSocialBody?> signInWithFacebook();
+  Future<AuthBody?> signInWithGoogle();
+  Future<AuthBody?> signInWithFacebook();
 }

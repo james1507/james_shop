@@ -23,5 +23,7 @@
   "rememberMe": "Remember me",
   "signIn": "Đăng nhập",
   "forgotPassword": "Quên mật khẩu?",
-  "orContinueWith": "hoặc tiếp tục với"
+  "orContinueWith": "hoặc tiếp tục với",
+  "registerTitle": " Tạo tài khoản mới",
+  "alreadyHaveAnAccount": "Bạn đã có tài khoản?"
 }

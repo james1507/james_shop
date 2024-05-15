@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:james_shop/core/translations/l10n.dart';
 import 'package:james_shop/core/utils/constant/app_assets.dart';
 import 'package:james_shop/features/account_auth/presentation/bloc/account_auth_bloc.dart';
-import 'package:james_shop/features/login/domain/models/login_social_body.dart';
+import 'package:james_shop/shared/domain/entities/auth_body.dart';
 import 'package:james_shop/shared/domain/enum/social_enum.dart';
 import 'package:james_shop/shared/presentation/widgets/app_button.dart';
 import 'package:james_shop/shared/presentation/widgets/app_loader.dart';
@@ -209,7 +209,9 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
                 padding: const MaterialStatePropertyAll(EdgeInsets.zero),
                 overlayColor: MaterialStatePropertyAll(
                     theme.primaryColor.withOpacity(0.1))),
-            onPressed: () {},
+            onPressed: () {
+              _bloc.add(NavigateToRegisterEvent());
+            },
             child: Text(
               lang.signUp,
               style: theme.textTheme.titleMedium!.copyWith(
@@ -225,7 +227,7 @@ class _AccountAuthPageState extends State<AccountAuthPage> {
   }
 
   callSocialLogin(SocialEnum socialEnum, {bool loading = true}) {
-    final LoginSocialBody loginBody = LoginSocialBody(socialType: socialEnum);
+    final AuthBody loginBody = AuthBody(socialType: socialEnum);
 
     _bloc.add(
       SoicalLoginButtonPressedEvent(

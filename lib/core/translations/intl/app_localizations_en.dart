@@ -75,4 +75,10 @@ class SEn extends S {
 
   @override
   String get orContinueWith => 'or continue with';
+
+  @override
+  String get registerTitle => 'Create your Account';
+
+  @override
+  String get alreadyHaveAnAccount => 'Already have an account?';
 }
