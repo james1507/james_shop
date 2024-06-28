@@ -81,4 +81,31 @@ class SEn extends S {
 
   @override
   String get alreadyHaveAnAccount => 'Already have an account?';
+
+  @override
+  String get goodMorning => 'Good Morning 👋';
+
+  @override
+  String get specialOffer => 'Special Offers';
+
+  @override
+  String get seeAll => 'See All';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get cart => 'Cart';
+
+  @override
+  String get orders => 'Orders';
+
+  @override
+  String get wallet => 'Wallet';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get search => 'Search';
 }

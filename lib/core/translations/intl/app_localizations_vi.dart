@@ -81,4 +81,31 @@ class SVi extends S {
 
   @override
   String get alreadyHaveAnAccount => 'Bạn đã có tài khoản?';
+
+  @override
+  String get goodMorning => 'Chào bạn 👋';
+
+  @override
+  String get specialOffer => 'Ưu đãi đặc biệt';
+
+  @override
+  String get seeAll => 'Tất cả';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get cart => 'Cart';
+
+  @override
+  String get orders => 'Orders';
+
+  @override
+  String get wallet => 'Wallet';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get search => 'Search';
 }

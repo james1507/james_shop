@@ -74,28 +74,37 @@ class _WalkthroughPageState extends State<WalkthroughPage>
 
   Widget _introContainer() {
     final size = MediaQuery.of(context).size;
-    final theme = Theme.of(context).textTheme;
 
     return SizedBox(
       height: size.height / 2.2,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 38),
-          Text(
-            TabWalkthroughEnumExtension.getTitlePage(_bloc.currentPageIndex),
-            style: theme.displaySmall!.copyWith(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 32),
+          _textTab(),
           _tabAction(),
-          const SizedBox(height: 40),
           _button(_bloc.currentPageIndex + 1),
+          const SizedBox(height: 30),
         ],
+      ),
+    );
+  }
+
+  Widget _textTab() {
+    final theme = Theme.of(context).textTheme;
+
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Text(
+          TabWalkthroughEnumExtension.getTitlePage(_bloc.currentPageIndex),
+          style: theme.displaySmall!.copyWith(
+            fontSize: 38,
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
@@ -105,7 +114,8 @@ class _WalkthroughPageState extends State<WalkthroughPage>
         TabWalkthroughEnumExtension.getTabWalkThrough(_bloc.currentPageIndex);
     final theme = Theme.of(context);
 
-    return SizedBox(
+    return Container(
+      margin: const EdgeInsets.only(bottom: 24),
       height: 8,
       child: ListView.separated(
         shrinkWrap: true,

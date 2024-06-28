@@ -11,6 +11,7 @@ class AppTextInput extends StatefulWidget {
   final TextInputAction? textInputAction;
   final Function(String)? onSubmitted;
   final Function()? onTap;
+  final Widget? suffixIcon;
 
   const AppTextInput({
     super.key,
@@ -23,6 +24,7 @@ class AppTextInput extends StatefulWidget {
     this.textInputAction,
     this.onSubmitted,
     this.onTap,
+    this.suffixIcon,
   });
 
   @override
@@ -37,6 +39,7 @@ class _AppTextInputState extends State<AppTextInput> {
   void initState() {
     super.initState();
     _focusNode = widget.focusNode ?? FocusNode();
+    _obscured = true;
   }
 
   void _toggleObscured() {
@@ -84,20 +87,8 @@ class _AppTextInputState extends State<AppTextInput> {
               ? theme.primaryColor
               : AppColors.greyscale500,
         ),
-        suffixIcon: Visibility(
-          visible: widget.showTogglePassword,
-          child: IconButton(
-            icon: Icon(
-              _obscured
-                  ? Icons.visibility_off_rounded
-                  : Icons.visibility_rounded,
-              color: (_focusNode?.hasFocus ?? false)
-                  ? theme.primaryColor
-                  : AppColors.greyscale500,
-            ),
-            onPressed: _toggleObscured,
-          ),
-        ),
+        suffixIcon:
+            widget.showTogglePassword ? _suffixIcon(theme) : widget.suffixIcon,
         border: widget.border,
       ),
       style: theme.textTheme.titleSmall!.copyWith(
@@ -113,6 +104,18 @@ class _AppTextInputState extends State<AppTextInput> {
       onTap: widget.onTap,
       obscureText: widget.showTogglePassword ? _obscured : false,
       obscuringCharacter: '●',
+    );
+  }
+
+  Widget _suffixIcon(ThemeData theme) {
+    return IconButton(
+      icon: Icon(
+        _obscured ? Icons.visibility_off_rounded : Icons.visibility_rounded,
+        color: (_focusNode?.hasFocus ?? false)
+            ? theme.primaryColor
+            : AppColors.greyscale500,
+      ),
+      onPressed: _toggleObscured,
     );
   }
 }

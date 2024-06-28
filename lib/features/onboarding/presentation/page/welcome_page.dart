@@ -59,7 +59,7 @@ class _WelcomePageState extends State<WelcomePage> {
           Text(
             lang.welcomeTo,
             style: textTheme.displayLarge!.copyWith(
-              fontSize: 48,
+              fontSize: 40,
               color: Colors.white,
             ),
           ),
@@ -67,7 +67,7 @@ class _WelcomePageState extends State<WelcomePage> {
           Text(
             lang.james,
             style: textTheme.displayLarge!.copyWith(
-              fontSize: 96,
+              fontSize: 90,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -80,6 +80,7 @@ class _WelcomePageState extends State<WelcomePage> {
               color: Colors.white,
             ),
           ),
+          const SizedBox(height: 20),
         ],
       ),
     );

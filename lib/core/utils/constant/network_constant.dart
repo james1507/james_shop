@@ -1,3 +1,3 @@
 class NetworkConstant {
-  static const String apiUrl = "http://10.0.2.2:3000";
+  static const String apiUrl = "https://basic-server-three.vercel.app";
 }

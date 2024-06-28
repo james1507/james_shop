@@ -25,5 +25,14 @@
   "forgotPassword": "Quên mật khẩu?",
   "orContinueWith": "hoặc tiếp tục với",
   "registerTitle": " Tạo tài khoản mới",
-  "alreadyHaveAnAccount": "Bạn đã có tài khoản?"
+  "alreadyHaveAnAccount": "Bạn đã có tài khoản?",
+  "goodMorning": "Chào bạn 👋",
+  "specialOffer": "Ưu đãi đặc biệt",
+  "seeAll": "Tất cả",
+  "home": "Home",
+  "cart": "Cart",
+  "orders": "Orders",
+  "wallet": "Wallet",
+  "profile": "Profile",
+  "search": "Search"
 }

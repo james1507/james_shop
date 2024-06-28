@@ -25,5 +25,14 @@
   "forgotPassword": "Forgot the password?",
   "orContinueWith": "or continue with",
   "registerTitle": "Create your Account",
-  "alreadyHaveAnAccount": "Already have an account?"
+  "alreadyHaveAnAccount": "Already have an account?",
+  "goodMorning": "Good Morning 👋",
+  "specialOffer": "Special Offers",
+  "seeAll": "See All",
+  "home": "Home",
+  "cart": "Cart",
+  "orders": "Orders",
+  "wallet": "Wallet",
+  "profile": "Profile",
+  "search": "Search"
 }

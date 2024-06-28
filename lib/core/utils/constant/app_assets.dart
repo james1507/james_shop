@@ -8,7 +8,11 @@ class AppAssets {
   static String accountAuth = Helper.getSvgPath('account_auth_img.svg');
   static String facebook = Helper.getSvgPath('facebook.svg');
   static String google = Helper.getSvgPath('google.svg');
+  static String heart = Helper.getSvgPath('heart.svg');
+  static String notification = Helper.getSvgPath('notification.svg');
+  static String option = Helper.getSvgPath('option.svg');
 
   static String welcomeBackground =
       Helper.getImagePath('welcome_background.png');
+  static String girlBanner = Helper.getImagePath('girl_banner.png');
 }

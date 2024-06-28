@@ -39,7 +39,7 @@ class AuthAppbar extends StatelessWidget {
           floating: true,
           expandedHeight: size.height / 4,
           flexibleSpace: FlexibleSpaceBar(
-            titlePadding: const EdgeInsets.only(left: 24, bottom: 12),
+            titlePadding: const EdgeInsets.only(left: 24, bottom: 12, right: 20),
             title: Text(
               title ?? "",
               style: theme.textTheme.displaySmall!.copyWith(
